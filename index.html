@@ -6,80 +6,26 @@
 <title>Arava Satya Saichanti | Geoinformatics & Remote Sensing</title>
 
 <style>
-body {
-font-family: 'Poppins', sans-serif;
-margin: 0;
-background: #f9f9f9;
-color: #222;
-line-height: 1.6;
+body {font-family:'Poppins',sans-serif;margin:0;background:#f9f9f9;color:#222;line-height:1.6;}
+header{background:#003366;color:white;text-align:center;padding:40px 20px;}
+header h1{margin:0;font-size:2.5em;}
+header p{color:#bcd0f0;margin-top:6px;}
+nav{background:#002244;text-align:center;padding:10px;}
+nav a{color:#e0e1dd;margin:0 14px;text-decoration:none;font-weight:500;}
+nav a:hover{color:#00b4d8;}
+section{padding:35px 20px;max-width:950px;margin:auto;}
+h2{color:#003366;border-bottom:3px solid #00b4d8;display:inline-block;padding-bottom:4px;margin-bottom:15px;}
+.project,.achievement,.exp-item,.pub-item{
+background:white;
+margin:10px 0;
+padding:16px;
+border-radius:8px;
+box-shadow:0 1px 4px rgba(0,0,0,0.08);
 }
-
-header {
-background: #003366;
-color: white;
-text-align: center;
-padding: 40px 20px;   /* reduced height */
-}
-
-header h1 {
-margin: 0;
-font-size: 2.5em;
-}
-
-header p {
-color: #bcd0f0;
-font-size: 1.05em;
-margin-top: 8px;
-}
-
-nav {
-background: #002244;
-text-align: center;
-padding: 10px;
-}
-
-nav a {
-color: #e0e1dd;
-margin: 0 14px;
-text-decoration: none;
-font-weight: 500;
-}
-
-nav a:hover {color: #00b4d8;}
-
-section {
-padding: 35px 20px;   /* reduced spacing */
-max-width: 950px;
-margin: auto;
-}
-
-h2 {
-color: #003366;
-border-bottom: 3px solid #00b4d8;
-display: inline-block;
-padding-bottom: 4px;
-margin-bottom: 15px;
-}
-
-.project, .achievement, .exp-item, .pub-item {
-background: white;
-margin: 10px 0;      /* reduced gap between cards */
-padding: 16px;       /* tighter padding */
-border-radius: 8px;
-box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-}
-
-footer {
-background: #003366;
-color: white;
-text-align: center;
-padding: 18px;       /* smaller footer */
-}
-
-.contact a {color: #00b4d8; text-decoration: none;}
-.contact a:hover {text-decoration: underline;}
-
-ul {line-height: 1.7; margin-top: 8px;}
+footer{background:#003366;color:white;text-align:center;padding:18px;}
+.contact a{color:#00b4d8;text-decoration:none;}
+.contact a:hover{text-decoration:underline;}
+ul{line-height:1.7;margin-top:8px;}
 </style>
 </head>
 
@@ -87,7 +33,7 @@ ul {line-height: 1.7; margin-top: 8px;}
 
 <header>
 <h1>Arava Satya Saichanti</h1>
-<p>Research Intern at IIIT Hyderabad | Geospatial Researcher | RS, GIS & GEE Specialist</p>
+<p>Research Intern at IIIT Hyderabad | Geospatial Researcher | RS & GIS Specialist</p>
 </header>
 
 <nav>
@@ -124,7 +70,7 @@ Monitoring Urban Sprawl and Environmental Transformation in Kalaburagi City, Kal
 
 <div class="project">
 <h3>Urban Heat Islands: Impact Assessment and Mitigation in Faridabad (2024)</h3>
-<p>Spatio-temporal analysis of LULC and LST using Landsat data and UTFVI-based hotspot identification.</p>
+<p>Spatio-temporal analysis of LULC and LST using Landsat (2007–2022).</p>
 </div>
 
 <div class="project">
@@ -134,12 +80,22 @@ Monitoring Urban Sprawl and Environmental Transformation in Kalaburagi City, Kal
 
 <div class="project">
 <h3>Spatiotemporal Flood Analysis in East Godavari (2019–2022)</h3>
-<p>Village-level flood vulnerability analysis using satellite and meteorological datasets.</p>
+<p>Village-level flood vulnerability analysis using satellite data.</p>
+</div>
+
+<div class="project">
+<h3>Geospatial Assessment of LULC Dynamics and Surface Energy Balance in Faridabad (2025)</h3>
+<p>High-resolution DEM, NDVI, slope, and aspect analysis.</p>
 </div>
 
 <div class="project">
 <h3>Soil Erosion Assessment in Warangal District (2025)</h3>
-<p>USLE-based erosion modelling to identify conservation priority zones.</p>
+<p>USLE-based erosion modelling.</p>
+</div>
+
+<div class="project">
+<h3>Landfill Site Identification using AHP in Warangal District (2025)</h3>
+<p>GIS-based suitability modelling.</p>
 </div>
 
 </section>
@@ -152,8 +108,8 @@ Monitoring Urban Sprawl and Environmental Transformation in Kalaburagi City, Kal
 <p>November 2025 – Present | Hyderabad, India</p>
 <ul>
 <li>Developing a fire-modified RUSLE soil erosion model using Google Earth Engine.</li>
-<li>Integrating burn severity indices with multi-source geospatial datasets.</li>
-<li>Advanced environmental modelling and spatial analytics.</li>
+<li>Integrating burn severity indices with satellite datasets.</li>
+<li>Advanced geospatial modelling and spatial analytics.</li>
 </ul>
 </div>
 </section>
@@ -161,9 +117,10 @@ Monitoring Urban Sprawl and Environmental Transformation in Kalaburagi City, Kal
 <section id="skills">
 <h2>Technical Skills</h2>
 <div class="achievement">
-<p><strong>Geospatial Software:</strong> ArcGIS Pro, QGIS, Google Earth Engine, ERDAS Imagine, ENVI</p>
-<p><strong>Techniques:</strong> LULC Mapping, OBIA, AHP, Change Detection, Hydrology & Watershed Analysis</p>
-<p><strong>Programming:</strong> Python</p>
+<p><strong>Geospatial Software:</strong> ArcGIS Pro, QGIS, Google Earth Engine, ERDAS Imagine, ENVI, ILWIS, eCognition</p>
+<p><strong>Techniques:</strong> LULC Mapping, Spatial Analysis, OBIA, AHP, Hotspot Analysis, Change Detection, Hydrology & Watershed Analysis</p>
+<p><strong>Programming:</strong> Python (PyCharm, VS Code)</p>
+<p><strong>Office Tools:</strong> Excel, Word, PowerPoint</p>
 <p><strong>Languages:</strong> Telugu, English, Hindi</p>
 </div>
 </section>
@@ -171,10 +128,32 @@ Monitoring Urban Sprawl and Environmental Transformation in Kalaburagi City, Kal
 <section id="achievements">
 <h2>Workshops & Certifications</h2>
 <ul>
-<li>AI&ML for Geodata Analysis (IIRS/ISRO)</li>
-<li>GIS Basics (ESRI)</li>
-<li>Fundamentals of Remote Sensing (NASA ARSET)</li>
-<li>International Workshop on Digital Image Processing (University of Mumbai)</li>
+<li>AI&ML for Geodata Analysis(IIRS/ISRO)</li>
+<li>Air Pollutants (Implications, Monitoring and Modelling)(IIRS/ISRO)</li>
+<li>Remote Sensing Data Analytics in Crop Production Forecasting(IIRS/ISRO)</li>
+<li>Geo-data sharing and Cyber Security(IIRS/ISRO)</li>
+<li>Basics of Remote Sensing, GIS and GNSS(IIRS/ISRO)</li>
+<li>LIDAR Data processing and Applications(IIRS/ISRO)</li>
+<li>Mapping and Monitoring of Green house gases through Space(IIRS/ISRO)</li>
+<li>Overview of Geocomputation and Geo web Services(IIRS/ISRO)</li>
+<li>Remote Sensing and Digital Image Analysis(IIRS/ISRO)</li>
+<li>Remote Sensing of Soils(IIRS/ISRO)</li>
+<li>RS & GIS Applications in Natural Resource Management(IIRS/ISRO)</li>
+<li>GIS Basics(ESRI)</li>
+<li>ArcGIS Pro Basics(ESRI)</li>
+<li>Getting Started with Imagery and Remote Sensing(ESRI)</li>
+<li>GIS for Climate Action(ESRI)</li>
+<li>Going Places with Spatial Analysis(ESRI)</li>
+<li>Spatial Data Science(ESRI)</li>
+<li>Cartography(ESRI)</li>
+<li>Mastering GIS(ATI MYSORE)</li>
+<li>Drones and Drone Data Processing(ATI MYSORE)</li>
+<li>QGIS for Land Management(ATI MYSORE)</li>
+<li>Fundamentals of Remote Sensing(NASA ARSET)</li>
+<li>QGIS Mastery (Spatial Hawk Geoinformatics)</li>
+<li>Bhuvan Overview(IIRS/ISRO)</li>
+<li>Space based inputs for Village level Crop Assessments(IIRS/ISRO)</li>
+<li>International Workshop on Digital Image Processing(University of Mumbai)</li>
 </ul>
 </section>
 
