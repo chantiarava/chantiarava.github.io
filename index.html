@@ -3,688 +3,1006 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="theme-color" content="#071522">
+<meta name="description" content="Portfolio of Arava Satya Saichanti, geospatial researcher working across remote sensing, GIS, soil carbon mapping and environmental modelling.">
 <title>Arava Satya Saichanti | Geospatial Researcher</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-body{
-font-family:'Inter',sans-serif;
-margin:0;
-background:#f4f6f9;
-color:#222;
-line-height:1.6;
+:root {
+  --bg: #071522;
+  --panel: rgba(11,29,45,.82);
+  --text: #eef6fb;
+  --muted: #a8bdcb;
+  --accent: #6ce5d0;
+  --blue: #76b9ff;
+  --line: rgba(180,220,239,.17);
 }
 
-header{
-background:#0b2545;
-color:white;
-text-align:center;
-padding:50px 20px;
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.65;
+  min-height: 100vh;
 }
 
-header h1{
-margin:0;
-font-size:2.4em;
-font-weight:600;
+/* Satellite imagery background */
+body:before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(
+      115deg,
+      rgba(4,16,28,.84),
+      rgba(5,21,34,.68) 48%,
+      rgba(4,18,29,.82)
+    ),
+    url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2400&q=90")
+    center/cover no-repeat;
 }
 
-header p{
-margin-top:8px;
-color:#cbd5e1;
-font-size:1.05em;
+body:after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .15;
+  background-image:
+    linear-gradient(rgba(120,200,225,.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120,200,225,.16) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
 }
 
-nav{
-background:#081c34;
-text-align:center;
-padding:12px;
+a {
+  color: var(--accent);
+  text-decoration: none;
 }
 
-nav a{
-color:#dbeafe;
-margin:0 15px;
-text-decoration:none;
-font-weight:500;
-font-size:0.95em;
+a:hover { color: white; }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(18px);
+  background: rgba(4,15,25,.84);
+  border-bottom: 1px solid var(--line);
 }
 
-nav a:hover{
-color:#38bdf8;
+.navwrap {
+  max-width: 1180px;
+  margin: auto;
+  padding: 13px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-section{
-max-width:1000px;
-margin:auto;
-padding:40px 20px;
+.brand {
+  font: 700 1rem "Space Grotesk", sans-serif;
+  letter-spacing: .02em;
+  color: white;
 }
 
-h2{
-color:#0b2545;
-margin-bottom:15px;
-font-size:1.5em;
-border-left:4px solid #38bdf8;
-padding-left:10px;
+.brand span { color: var(--accent); }
+
+.navlinks {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
-.card{
-background:white;
-padding:18px;
-margin-bottom:15px;
-border-radius:8px;
-box-shadow:0 2px 6px rgba(0,0,0,0.06);
+.navlinks button {
+  font: 600 .83rem "DM Sans", sans-serif;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 9px 13px;
+  cursor: pointer;
+  transition: .2s;
 }
 
-footer{
-background:#0b2545;
-color:white;
-text-align:center;
-padding:20px;
-font-size:0.9em;
+.navlinks button:hover,
+.navlinks button.active {
+  color: var(--text);
+  border-color: rgba(108,229,208,.4);
+  background: rgba(108,229,208,.09);
 }
 
-.contact a{
-color:#38bdf8;
-text-decoration:none;
+main {
+  max-width: 1180px;
+  margin: auto;
+  padding: 42px 24px 70px;
 }
 
-.contact a:hover{
-text-decoration:underline;
+.hero {
+  min-height: 65vh;
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  align-items: center;
+  gap: 44px;
+  padding: 44px 0 58px;
 }
 
-ul{
-margin-top:8px;
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .17em;
+  font-size: .74rem;
+  font-weight: 700;
 }
 
-
-/* Institute Logos */
-
-.institute-logos{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:35px;
-margin-top:25px;
-flex-wrap:wrap;
+.eyebrow:before {
+  content: "";
+  width: 27px;
+  height: 1px;
+  background: var(--accent);
 }
 
-.institute-logo{
-background:white;
-padding:12px 18px;
-border-radius:10px;
-box-shadow:0 2px 6px rgba(0,0,0,0.08);
-text-align:center;
+h1, h2, h3 {
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1.15;
 }
 
-.institute-logo img{
-height:70px;
-width:auto;
-max-width:140px;
-object-fit:contain;
+h1 {
+  font-size: clamp(2.7rem,6vw,5.6rem);
+  letter-spacing: -.055em;
+  margin: 22px 0 16px;
+  max-width: 760px;
 }
 
-.institute-logo p{
-margin:8px 0 0;
-font-size:0.8em;
-color:#555;
-font-weight:600;
+h1 em {
+  font-style: normal;
+  color: var(--accent);
 }
 
-
-/* Current Position */
-
-.current-position{
-border-left:4px solid #38bdf8;
+.hero p {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 680px;
 }
 
-
-/* Research title formatting */
-
-.research-title{
-font-size:0.95em;
-line-height:1.6;
-color:#444;
-margin-top:8px;
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
 }
 
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 9px;
+  font-weight: 700;
+  font-size: .9rem;
+  border: 1px solid var(--line);
+  transition: .2s;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #05201f;
+  border-color: var(--accent);
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn.secondary {
+  color: var(--text);
+  background: rgba(255,255,255,.04);
+}
+
+.orbit-card {
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg,rgba(19,51,70,.78),rgba(6,22,35,.7));
+  border-radius: 22px;
+  padding: 25px;
+  box-shadow: 0 25px 80px rgba(0,0,0,.22);
+  position: relative;
+  overflow: hidden;
+}
+
+.orbit-card:before {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border: 1px solid rgba(108,229,208,.22);
+  border-radius: 50%;
+  right: -100px;
+  top: -100px;
+  box-shadow:
+    0 0 0 24px rgba(108,229,208,.035),
+    0 0 0 50px rgba(108,229,208,.025);
+}
+
+.orbit-card small {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  font-weight: 700;
+}
+
+.orbit-card h2 {
+  font-size: 1.6rem;
+  margin: 14px 0;
+}
+
+.orbit-card p { font-size: .94rem; }
+
+.statrow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.stat {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255,255,255,.025);
+}
+
+.stat strong {
+  display: block;
+  font: 600 1rem "Space Grotesk", sans-serif;
+}
+
+.stat span {
+  font-size: .76rem;
+  color: var(--muted);
+}
+
+/* Only one main section is displayed at a time */
+.content-panel {
+  display: none;
+  animation: appear .32s ease;
+}
+
+.content-panel.active { display: block; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-head {
+  padding: 22px 0 28px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 26px;
+}
+
+.section-head .eyebrow { font-size: .7rem; }
+
+.section-head h2 {
+  font-size: clamp(2rem,4vw,3rem);
+  margin: 13px 0 8px;
+  letter-spacing: -.04em;
+}
+
+.section-head p {
+  color: var(--muted);
+  margin: 0;
+  max-width: 750px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 16px;
+}
+
+.card {
+  padding: 23px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  transition: transform .2s,border-color .2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(108,229,208,.42);
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 1.16rem;
+}
+
+.card p {
+  margin: 8px 0;
+  color: var(--muted);
+}
+
+.card .meta {
+  font-size: .82rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.card ul {
+  padding-left: 19px;
+  color: var(--muted);
+}
+
+.card li { margin: 7px 0; }
+
+.wide { grid-column: 1 / -1; }
+
+.taglist {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.tag {
+  font-size: .77rem;
+  color: #cfe5ef;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.035);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.timeline { display: grid; gap: 13px; }
+
+.timeline .card {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 18px;
+}
+
+.date {
+  font-size: .83rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Satellite imagery in the projects section */
+.satellite-strip {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 12px;
+  margin: 0 0 26px;
+}
+
+.satellite-image {
+  min-height: 150px;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--line);
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+}
+
+.satellite-image:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg,rgba(3,14,24,.88),rgba(3,14,24,.03) 78%);
+  z-index: -1;
+}
+
+.satellite-image span {
+  position: absolute;
+  bottom: 13px;
+  left: 14px;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-shadow: 0 1px 8px #000;
+}
+
+.project-image {
+  height: 165px;
+  margin: -23px -23px 19px;
+  border-radius: 15px 15px 0 0;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+}
+
+.contact-link {
+  display: block;
+  padding: 16px 18px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.contact-link span {
+  display: block;
+  font-size: .78rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 22px 0 0;
+  margin-top: 42px;
+  color: var(--muted);
+  font-size: .82rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.mobile-note {
+  display: none;
+  color: var(--muted);
+  font-size: .8rem;
+  margin-top: 12px;
+}
+
+@media(max-width:800px) {
+  .navwrap {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .navlinks { justify-content: flex-start; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 32px;
+  }
+
+  .orbit-card { max-width: 540px; }
+
+  .grid, .contact-grid { grid-template-columns: 1fr; }
+
+  .timeline .card {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  main { padding-top: 25px; }
+
+  .mobile-note { display: block; }
+}
+
+@media(max-width:650px) {
+  .satellite-strip { grid-template-columns: 1fr; }
+  .satellite-image { min-height: 130px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  * {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
 </style>
 </head>
 
-
 <body>
+<header class="topbar">
+  <div class="navwrap">
+    <a class="brand" href="#" aria-label="Home"
+       onclick="showPanel('home');return false">ARAVA<span>.</span>GEO</a>
 
-<header>
-
-<h1>Arava Satya Saichanti</h1>
-
-<p>
-Geospatial Researcher | GIS | Remote Sensing | Environmental Modelling | Soil Carbon
-</p>
-
+    <nav class="navlinks" aria-label="Portfolio sections">
+      <button class="active" data-panel="home" onclick="showPanel('home')">Home</button>
+      <button data-panel="about" onclick="showPanel('about')">About</button>
+      <button data-panel="education" onclick="showPanel('education')">Education</button>
+      <button data-panel="research" onclick="showPanel('research')">Research</button>
+      <button data-panel="publications" onclick="showPanel('publications')">Publications</button>
+      <button data-panel="projects" onclick="showPanel('projects')">Projects</button>
+      <button data-panel="experience" onclick="showPanel('experience')">Experience</button>
+      <button data-panel="skills" onclick="showPanel('skills')">Skills</button>
+      <button data-panel="contact" onclick="showPanel('contact')">Contact</button>
+    </nav>
+  </div>
 </header>
 
+<main>
 
-<nav>
+<!-- HOME -->
+<section id="home" class="content-panel active">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Geospatial Research · Remote Sensing · GIS</div>
+      <h1>Reading the Earth<br>through <em>data.</em></h1>
 
-<a href="#about">About</a>
-<a href="#education">Education</a>
-<a href="#research">Research</a>
-<a href="#publications">Publications</a>
-<a href="#projects">Projects</a>
-<a href="#experience">Experience</a>
-<a href="#skills">Skills</a>
-<a href="#contact">Contact</a>
+      <p>I'm Arava Satya Saichanti, a geospatial researcher working at the intersection of satellite remote sensing, spatial modelling, soil carbon assessment and environmental change.</p>
 
-</nav>
+      <div class="hero-actions">
+        <a class="btn primary" href="mailto:ssc39494@gmail.com">Get in touch ↗</a>
+        <button class="btn secondary" onclick="showPanel('projects')">Explore my work →</button>
+      </div>
 
+      <p class="mobile-note">Choose a section above to explore the portfolio. Each section opens separately.</p>
+    </div>
+
+    <aside class="orbit-card">
+      <small>Current research</small>
+      <h2>Soil carbon & sustainable agriculture</h2>
+      <p>Junior Research Fellow at ICAR–NBSS&LUP, Nagpur. Integrating remote sensing, GIS, field observations and modelling to map soil carbon and explore carbon-credit potential in Indian agriculture.</p>
+
+      <div class="statrow">
+        <div class="stat"><strong>Remote Sensing</strong><span>Earth observation</span></div>
+        <div class="stat"><strong>Spatial Modelling</strong><span>GIS & machine learning</span></div>
+        <div class="stat"><strong>Soil Carbon</strong><span>Digital soil mapping</span></div>
+        <div class="stat"><strong>Environment</strong><span>Land & climate</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
 
 <!-- ABOUT -->
+<section id="about" class="content-panel">
+  <div class="section-head">
+    <div class="eyebrow">Profile</div>
+    <h2>About me</h2>
+    <p>Geospatial methods for understanding landscapes, environmental processes and sustainable land management.</p>
+  </div>
 
-<section id="about">
+  <div class="grid">
+    <article class="card wide">
+      <h3>Research profile</h3>
+      <p>I am a Junior Research Fellow at the ICAR–National Bureau of Soil Survey and Land Use Planning (ICAR-NBSS&LUP), Nagpur, working on soil carbon assessment and carbon-credit potential in Indian agriculture. My current research integrates Remote Sensing, GIS, field observations and modelling approaches for mapping and assessing soil carbon.</p>
+      <p>I hold an M.Sc. in Applied Geography and Geoinformatics from the Central University of Karnataka. Previously, I worked with the Just Transition Research Centre (JTRC), IIT Kanpur, and the Lab for Spatial Informatics (LSI), IIIT Hyderabad.</p>
+    </article>
 
-<h2>About</h2>
+    <article class="card">
+      <h3>Research approach</h3>
+      <p>Combining satellite observations, environmental covariates, field measurements and spatial analysis to produce interpretable, map-based research outputs.</p>
+    </article>
 
-<p>
-I am a Junior Research Fellow at the ICAR – National Bureau of Soil Survey and Land Use Planning (ICAR-NBSS&LUP), Nagpur, working on soil carbon assessment and carbon credit potential in Indian agriculture. My current research focuses on integrating Remote Sensing, GIS, field observations, and modelling approaches for mapping and assessing soil carbon.
-</p>
-
-<p>
-I hold an M.Sc. in Applied Geography and Geoinformatics from the Central University of Karnataka. Previously, I worked as a Research Associate at the Just Transition Research Centre (JTRC), IIT Kanpur, and as a Research Assistant and Research Intern at the Lab for Spatial Informatics (LSI), IIIT Hyderabad.
-</p>
-
-<p>
-My research interests include soil carbon mapping, digital soil mapping, geospatial modelling, Remote Sensing, GIS, environmental monitoring, land use and land cover change, hydrological applications, climate studies, and the application of geospatial technologies to sustainable agriculture and environmental research.
-</p>
-
+    <article class="card">
+      <h3>Areas of interest</h3>
+      <div class="taglist">
+        <span class="tag">Digital Soil Mapping</span>
+        <span class="tag">Soil Organic Carbon</span>
+        <span class="tag">Remote Sensing</span>
+        <span class="tag">GIS</span>
+        <span class="tag">Environmental Modelling</span>
+        <span class="tag">Land Change</span>
+      </div>
+    </article>
+  </div>
 </section>
-
 
 <!-- EDUCATION -->
+<section id="education" class="content-panel">
+  <div class="section-head">
+    <div class="eyebrow">Academic background</div>
+    <h2>Education</h2>
+    <p>Training in geography, geoinformatics and spatial analysis.</p>
+  </div>
 
-<section id="education">
+  <div class="timeline">
+    <article class="card">
+      <div class="date">2024–2026</div>
+      <div>
+        <h3>M.Sc. Applied Geography and Geoinformatics</h3>
+        <p>Central University of Karnataka</p>
+      </div>
+    </article>
 
-<h2>Education</h2>
+    <article class="card">
+      <div class="date">2021–2024</div>
+      <div>
+        <h3>B.Sc. in Applied Geography and Geoinformatics</h3>
+        <p>Central University of Karnataka</p>
+      </div>
+    </article>
 
+    <article class="card">
+      <div class="date">2019–2021</div>
+      <div>
+        <h3>Intermediate (Class XII)</h3>
+        <p>Sasi Junior College</p>
+      </div>
+    </article>
 
-<div class="card">
-
-<p>
-<strong>M.Sc. in Applied Geography and Geoinformatics</strong>
-</p>
-
-<p>
-Central University of Karnataka | 2024 – 2026
-</p>
-
-</div>
-
-
-<div class="card">
-
-<p>
-<strong>B.Sc. in Geography</strong>
-</p>
-
-<p>
-Central University of Karnataka | 2021 – 2024
-</p>
-
-</div>
-
-
-<div class="card">
-
-<p>
-<strong>Intermediate (Class XII)</strong>
-</p>
-
-<p>
-Sasi Junior College | 2019 – 2021
-</p>
-
-</div>
-
-
-<div class="card">
-
-<p>
-<strong>Secondary Education (Class X)</strong>
-</p>
-
-<p>
-Dr. KKR Gowtham School | 2018 – 2019
-</p>
-
-</div>
-
+    <article class="card">
+      <div class="date">2018–2019</div>
+      <div>
+        <h3>Secondary Education (Class X)</h3>
+        <p>Dr. KKR Gowtham School</p>
+      </div>
+    </article>
+  </div>
 </section>
-
 
 <!-- RESEARCH -->
+<section id="research" class="content-panel">
+  <div class="section-head">
+    <div class="eyebrow">What I investigate</div>
+    <h2>Research focus</h2>
+    <p>Research themes across soil systems, environmental change and geospatial decision support.</p>
+  </div>
 
-<section id="research">
+  <div class="grid">
+    <article class="card">
+      <h3>Soil carbon & digital soil mapping</h3>
+      <p>Spatial prediction of soil organic carbon using field observations, environmental covariates and modelling approaches.</p>
+    </article>
 
-<h2>Research Focus</h2>
+    <article class="card">
+      <h3>Remote sensing for agriculture</h3>
+      <p>Satellite-derived vegetation and moisture indicators for landscape and agricultural assessment.</p>
+    </article>
 
-<div class="card">
+    <article class="card">
+      <h3>Soil erosion & fire impacts</h3>
+      <p>RUSLE-based erosion modelling and assessment of burn severity effects on erosion dynamics.</p>
+    </article>
 
-<h3>Research Interests</h3>
+    <article class="card">
+      <h3>Land cover & urban climate</h3>
+      <p>Multi-temporal land use/land cover analysis, land surface temperature and urban heat island assessment.</p>
+    </article>
 
-<ul>
+    <article class="card">
+      <h3>Hydrology & hazards</h3>
+      <p>GIS-based watershed analysis and spatial assessment of flood and landslide vulnerability.</p>
+    </article>
 
-<li>
-Digital soil mapping and soil carbon assessment
-</li>
-
-<li>
-Remote Sensing and GIS applications in soil science and agriculture
-</li>
-
-<li>
-Soil organic carbon mapping and spatial modelling
-</li>
-
-<li>
-Carbon credit potential and sustainable agricultural systems
-</li>
-
-<li>
-Geospatial analysis for energy transition, environmental change, and sustainable development
-</li>
-
-<li>
-Soil erosion modelling using RUSLE and GIS
-</li>
-
-<li>
-Fire impact assessment using burn severity indices
-</li>
-
-<li>
-Google Earth Engine-based geospatial analysis
-</li>
-
-<li>
-Urban climate and land surface temperature studies
-</li>
-
-<li>
-Multi-criteria decision analysis (AHP) for site suitability
-</li>
-
-</ul>
-
-</div>
-
+    <article class="card">
+      <h3>Spatial decision support</h3>
+      <p>Multi-criteria decision analysis, AHP and weighted-overlay methods for suitability mapping.</p>
+    </article>
+  </div>
 </section>
-
 
 <!-- PUBLICATIONS -->
+<section id="publications" class="content-panel">
+  <div class="section-head">
+    <div class="eyebrow">Research outputs</div>
+    <h2>Publications</h2>
+    <p>Selected publications and conference manuscripts.</p>
+  </div>
 
-<section id="publications">
+  <div class="timeline">
+    <article class="card">
+      <div class="date">2026 · Published</div>
+      <div>
+        <h3>Monitoring Urban Sprawl and Environmental Transformation in Kalaburagi City using Multi-Temporal Sentinel-2 Imagery</h3>
+        <p><em>International Journal of Research and Analytical Reviews (IJRAR).</em></p>
+        <p><a href="https://doi.org/10.56975/ijrar.v13i1.325865" target="_blank" rel="noopener">Read publication / DOI ↗</a></p>
+      </div>
+    </article>
 
-<h2>Publications</h2>
+    <article class="card">
+      <div class="date">2026 · Accepted</div>
+      <div>
+        <h3>Assessing Fire-Erosion Dynamics in Forested Sub-basins of Peninsular India</h3>
+        <p>Arava Satya Saichanti et al. Accepted for the IEEE India Geoscience and Remote Sensing Symposium (INGRSS 2026) Conference Proceedings.</p>
+      </div>
+    </article>
 
+    <article class="card">
+      <div class="date">2026 · Accepted</div>
+      <div>
+        <h3>Geospatial Analysis of Landfill Site Suitability in Warangal District, India</h3>
+        <p>Arava Satya Saichanti et al. Accepted in <em>Geographical Analysis</em> (Manuscript ID: GA-2026-19).</p>
+      </div>
+    </article>
 
-<div class="card">
-
-<p>
-<strong>Arava Satya Saichanti</strong>, et al. (2026).
-</p>
-
-<p>
-Monitoring Urban Sprawl and Environmental Transformation in Kalaburagi City using Multi-Temporal Sentinel-2 Imagery.
-</p>
-
-<p>
-<em>International Journal of Research and Analytical Reviews (IJRAR).</em>
-</p>
-
-<a href="https://doi.org/10.56975/ijrar.v13i1.325865"
-target="_blank">
-View DOI
-</a>
-
-</div>
-
-
-<div class="card">
-
-<p>
-<strong>
-Arava Satya Saichanti, Mewan Banshan War, Kiran Chand Thumaty
-</strong>
-(2026).
-</p>
-
-<p>
-Assessing Fire-Erosion Dynamics in Forested Sub-basins of Peninsular India.
-</p>
-
-<p>
-<em>
-Accepted for publication in the IEEE India Geoscience and Remote Sensing Symposium (INGRSS 2026) Conference Proceedings.
-</em>
-</p>
-
-</div>
-
-
-<div class="card">
-
-<p>
-<strong>
-Arava Satya Saichanti, Ashok Kumar, B. Mahalingam
-</strong>
-(2026).
-</p>
-
-<p>
-Geospatial Analysis of Landfill Site Suitability in Warangal District, India.
-</p>
-
-<p>
-<em>
-Accepted for publication in Geographical Analysis (Manuscript ID: GA-2026-19).
-</em>
-</p>
-
-</div>
-
+    <article class="card">
+      <div class="date">8 July 2026 · The News Minute / Citizen Matters</div>
+      <div>
+        <h3>Why Uppal is getting hotter: Dense construction and reduced green cover increase temperatures</h3>
+        <p>Arava Satya Saichanti et al. The article examines how rapid urbanisation between 2015 and 2025 has intensified heat risks in Uppal, Hyderabad, and highlights the need for blue-green infrastructure.</p>
+        <p><span class="meta">Publication: Citizen Matters · The News Minute</span></p>
+      </div>
+    </article>
+  </div>
 </section>
 
+<!-- PROJECTS AND PUBLICATIONS -->
+<section id="projects" class="content-panel">
+  <div class="section-head">
+    <div class="eyebrow">Applied geospatial work</div>
+    <h2>Projects & research outputs</h2>
+    <p>Current research, completed geospatial projects and publications in one place.</p>
+  </div>
 
-<!-- PROJECTS -->
+  <div class="satellite-strip" aria-label="Satellite imagery highlights">
+    <div class="satellite-image"
+      style="background-image:url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=1000&q=85')">
+      <span>Earth observation</span>
+    </div>
 
-<section id="projects">
+    <div class="satellite-image"
+      style="background-image:url('https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1000&q=85')">
+      <span>Landscape analysis</span>
+    </div>
 
-<h2>Selected Projects</h2>
+    <div class="satellite-image"
+      style="background-image:url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1000&q=85')">
+      <span>Environmental change</span>
+    </div>
+  </div>
 
+  <div class="grid">
 
-<div class="card">
+    <article class="card wide">
+      <div class="project-image"
+        style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85')">
+      </div>
 
-<strong>
-Urban Heat Island Assessment – Faridabad
-</strong>
+      <div class="meta">Current project · ICAR–NBSS&LUP, Nagpur</div>
 
-<p>
-Spatio-temporal analysis of LULC and LST (2007–2022) using Landsat data. Identified UHI hotspots using UTFVI.
-</p>
+      <h3>Mapping and Assessing Soil Carbon by Integrating Remote Sensing, GIS and Modelling Approaches for Enhancing the Carbon Credit Potential in Indian Agriculture</h3>
 
-</div>
+      <p>Integrating field observations, satellite-derived indicators, environmental covariates, GIS and modelling approaches to map and assess soil carbon and support evaluation of carbon-credit potential in Indian agriculture.</p>
 
+      <div class="taglist">
+        <span class="tag">Soil Carbon</span>
+        <span class="tag">Digital Soil Mapping</span>
+        <span class="tag">Remote Sensing</span>
+        <span class="tag">GIS & Modelling</span>
+        <span class="tag">Carbon Credits</span>
+      </div>
+    </article>
 
-<div class="card">
+    <article class="card">
+      <div class="project-image"
+        style="background-image:url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1000&q=85')">
+      </div>
+      <div class="meta">Urban environment</div>
+      <h3>Urban Heat Island Assessment · Faridabad</h3>
+      <p>Spatio-temporal LULC and land surface temperature analysis (2007–2022) using Landsat data; identification of UHI hotspots using UTFVI.</p>
+    </article>
 
-<strong>
-Landslide Susceptibility Mapping – Araku Valley
-</strong>
+    <article class="card">
+      <div class="project-image"
+        style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85')">
+      </div>
+      <div class="meta">Terrain & hazards</div>
+      <h3>Landslide Susceptibility · Araku Valley</h3>
+      <p>GIS-AHP modelling integrating slope, rainfall and land-use factors.</p>
+    </article>
 
-<p>
-GIS-AHP modelling integrating slope, rainfall, and land use factors.
-</p>
+    <article class="card">
+      <div class="project-image"
+        style="background-image:url('https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&w=1000&q=85')">
+      </div>
+      <div class="meta">Hydrology</div>
+      <h3>Flood Analysis · East Godavari</h3>
+      <p>Village-level flood vulnerability assessment using satellite and meteorological data (2019–2022).</p>
+    </article>
 
-</div>
+    <article class="card">
+      <div class="project-image"
+        style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=85')">
+      </div>
+      <div class="meta">Land suitability</div>
+      <h3>Landfill Site Suitability · Warangal</h3>
+      <p>Weighted-overlay and AHP-based GIS modelling for landfill site selection.</p>
+    </article>
 
+    <article class="card">
+      <div class="meta">Land surface processes</div>
+      <h3>LULC & Surface Energy Balance · Faridabad</h3>
+      <p>Spatial analysis using DEM, NDVI, slope and aspect parameters.</p>
+    </article>
 
-<div class="card">
+    <article class="card">
+      <div class="meta">Publication · 2026</div>
+      <h3>Monitoring Urban Sprawl and Environmental Transformation in Kalaburagi City using Multi-Temporal Sentinel-2 Imagery</h3>
+      <p><em>International Journal of Research and Analytical Reviews (IJRAR).</em></p>
+      <p><a href="https://doi.org/10.56975/ijrar.v13i1.325865" target="_blank" rel="noopener">Read publication / DOI ↗</a></p>
+    </article>
 
-<strong>
-Flood Analysis – East Godavari (2019–2022)
-</strong>
+    <article class="card">
+      <div class="meta">Conference publication · 2026</div>
+      <h3>Assessing Fire-Erosion Dynamics in Forested Sub-basins of Peninsular India</h3>
+      <p>Arava Satya Saichanti et al. Accepted for the IEEE India Geoscience and Remote Sensing Symposium (INGRSS 2026) Conference Proceedings.</p>
+    </article>
 
-<p>
-Village-level flood vulnerability assessment using satellite and meteorological data.
-</p>
+    <article class="card">
+      <div class="meta">Research publication · 2026</div>
+      <h3>Geospatial Analysis of Landfill Site Suitability in Warangal District, India</h3>
+      <p>Arava Satya Saichanti et al. Accepted in <em>Geographical Analysis</em> (Manuscript ID: GA-2026-19).</p>
+    </article>
 
-</div>
+    <article class="card wide">
+      <div class="meta">The News Minute · Citizen Matters · 8 July 2026</div>
+      <h3>Why Uppal is getting hotter: Dense construction and reduced green cover increase temperatures</h3>
+      <p>Arava Satya Saichanti et al. Reporting on urbanisation-driven heat risks in Uppal, Hyderabad, using 2015–2025 data and discussing the role of blue-green infrastructure.</p>
+    </article>
 
-
-<div class="card">
-
-<strong>
-LULC & Surface Energy Balance – Faridabad
-</strong>
-
-<p>
-Analysis using DEM, NDVI, slope, and aspect parameters.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<strong>
-Landfill Site Suitability – Warangal
-</strong>
-
-<p>
-Weighted overlay and AHP-based GIS modelling for site selection.
-</p>
-
-</div>
-
+  </div>
 </section>
-
 
 <!-- EXPERIENCE -->
+<section id="experience" class="content-panel">
+  <div class="section-head">
+    <div class="eyebrow">Professional journey</div>
+    <h2>Experience</h2>
+    <p>Research roles spanning soil science, geospatial analysis and environmental research.</p>
+  </div>
 
-<section id="experience">
+  <div class="timeline">
+    <article class="card">
+      <div class="date">5 Oct 2026 – Present</div>
+      <div>
+        <h3>Junior Research Fellow</h3>
+        <p><strong>ICAR–National Bureau of Soil Survey and Land Use Planning (ICAR-NBSS&LUP)</strong> · Nagpur, Maharashtra</p>
+        <p>Project: “Mapping and Assessing Soil Carbon by Integrating Remote Sensing, GIS and Modelling Approaches for Enhancing the Carbon Credit Potential in Indian Agriculture.”</p>
+      </div>
+    </article>
 
-<h2>Experience</h2>
+    <article class="card">
+      <div class="date">Sep–Oct 2026</div>
+      <div>
+        <h3>Research Associate</h3>
+        <p>Just Transition Research Centre (JTRC), IIT Kanpur · September 2026–1 October 2026.</p>
+      </div>
+    </article>
 
+    <article class="card">
+      <div class="date">Apr–Jul 2026</div>
+      <div>
+        <h3>Research Assistant</h3>
+        <p>Lab for Spatial Informatics (LSI), IIIT Hyderabad · 15 April–24 July 2026.</p>
+      </div>
+    </article>
 
-<!-- CURRENT JRF -->
-
-<div class="card current-position">
-
-<strong>
-Junior Research Fellow
-</strong>
-
-<p>
-<strong>
-ICAR – National Bureau of Soil Survey and Land Use Planning (ICAR-NBSS&LUP)
-</strong>
-</p>
-
-<p>
-Nagpur, Maharashtra | 5 October 2026 – Present
-</p>
-
-<p class="research-title">
-
-<strong>Research Project:</strong><br>
-
-“Mapping and Assessing Soil Carbon by Integrating Remote Sensing, GIS and Modelling Approaches for Enhancing the Carbon Credit Potential in Indian Agriculture”
-
-</p>
-
-</div>
-
-
-<!-- PREVIOUS RESEARCH ASSOCIATE -->
-
-<div class="card">
-
-<strong>
-Research Associate
-</strong>
-
-<p>
-<strong>
-Just Transition Research Centre (JTRC), IIT Kanpur
-</strong>
-</p>
-
-<p>
-September 2026 – 1 October 2026
-</p>
-
-</div>
-
-
-<!-- RESEARCH ASSISTANT -->
-
-<div class="card">
-
-<strong>
-Research Assistant
-</strong>
-
-<p>
-Lab for Spatial Informatics (LSI), IIIT Hyderabad
-</p>
-
-<p>
-15 April 2026 – 24 July 2026
-</p>
-
-</div>
-
-
-<!-- RESEARCH INTERN -->
-
-<div class="card">
-
-<strong>
-Research Intern
-</strong>
-
-<p>
-Lab for Spatial Informatics (LSI), IIIT Hyderabad
-</p>
-
-<p>
-24 November 2025 – 14 April 2026
-</p>
-
-</div>
-
-
+    <article class="card">
+      <div class="date">Nov 2025–Apr 2026</div>
+      <div>
+        <h3>Research Intern</h3>
+        <p>Lab for Spatial Informatics (LSI), IIIT Hyderabad · 24 November 2025–14 April 2026.</p>
+      </div>
+    </article>
+  </div>
 </section>
-
 
 <!-- SKILLS -->
+<section id="skills" class="content-panel">
+  <div class="section-head">
+    <div class="eyebrow">Tools & methods</div>
+    <h2>Technical skills</h2>
+    <p>Software, methods and analytical tools used in geospatial research.</p>
+  </div>
 
-<section id="skills">
+  <div class="grid">
+    <article class="card">
+      <h3>GIS & remote sensing</h3>
+      <div class="taglist">
+        <span class="tag">ArcGIS Pro</span>
+        <span class="tag">QGIS</span>
+        <span class="tag">Google Earth Engine</span>
+        <span class="tag">ERDAS Imagine</span>
+        <span class="tag">ENVI</span>
+        <span class="tag">ILWIS</span>
+        <span class="tag">eCognition</span>
+      </div>
+    </article>
 
-<h2>Technical Skills</h2>
+    <article class="card">
+      <h3>Spatial methods</h3>
+      <div class="taglist">
+        <span class="tag">Digital Soil Mapping</span>
+        <span class="tag">Soil Carbon Mapping</span>
+        <span class="tag">LULC Mapping</span>
+        <span class="tag">AHP</span>
+        <span class="tag">OBIA</span>
+        <span class="tag">Change Detection</span>
+        <span class="tag">Watershed Analysis</span>
+      </div>
+    </article>
 
-<div class="card">
+    <article class="card">
+      <h3>Environmental modelling</h3>
+      <div class="taglist">
+        <span class="tag">RUSLE</span>
+        <span class="tag">Soil Erosion</span>
+        <span class="tag">Environmental Monitoring</span>
+        <span class="tag">Spatial Modelling</span>
+      </div>
+    </article>
 
-<p>
-<strong>GIS & Remote Sensing:</strong>
-ArcGIS Pro, QGIS, Google Earth Engine, ERDAS Imagine, ENVI, ILWIS, eCognition
-</p>
-
-<p>
-<strong>Techniques:</strong>
-Digital Soil Mapping, Soil Carbon Mapping, LULC Mapping, AHP, OBIA, Change Detection, Hydrology & Watershed Analysis
-</p>
-
-<p>
-<strong>Environmental Modelling:</strong>
-RUSLE, Soil Erosion Modelling, Environmental Monitoring, Spatial Modelling
-</p>
-
-<p>
-<strong>Programming:</strong>
-Python
-</p>
-
-<p>
-<strong>Tools:</strong>
-Excel, Word, PowerPoint
-</p>
-
-<p>
-<strong>Languages:</strong>
-Telugu, English, Hindi
-</p>
-
-</div>
-
+    <article class="card">
+      <h3>Programming & productivity</h3>
+      <div class="taglist">
+        <span class="tag">Python</span>
+        <span class="tag">Excel</span>
+        <span class="tag">Word</span>
+        <span class="tag">PowerPoint</span>
+      </div>
+      <p><strong>Languages:</strong> Telugu, English and Hindi.</p>
+    </article>
+  </div>
 </section>
-
-
-
-</section>
-
 
 <!-- CONTACT -->
+<section id="contact" class="content-panel">
+  <div class="section-head">
+    <div class="eyebrow">Let's connect</div>
+    <h2>Contact</h2>
+    <p>For research collaboration, geospatial projects and professional enquiries.</p>
+  </div>
 
-<section id="contact" class="contact">
+  <div class="contact-grid">
+    <a class="contact-link" href="mailto:ssc39494@gmail.com">
+      <span>Email</span>ssc39494@gmail.com ↗
+    </a>
 
-<h2>Contact</h2>
+    <a class="contact-link" href="https://www.linkedin.com/in/sschanti" target="_blank" rel="noopener">
+      <span>LinkedIn</span>linkedin.com/in/sschanti ↗
+    </a>
 
+    <a class="contact-link" href="https://orcid.org/0009-0009-9860-7030" target="_blank" rel="noopener">
+      <span>ORCID</span>0009-0009-9860-7030 ↗
+    </a>
 
-<p>
-Email:
-<a href="mailto:ssc39494@gmail.com">
-ssc39494@gmail.com
-</a>
-</p>
-
-
-<p>
-Phone: +91 9182935552
-</p>
-
-
-<p>
-WhatsApp:
-
-<a
-href="https://wa.me/9182935552"
-target="_blank">
-
-wa.me/9182935552
-
-</a>
-
-</p>
-
-
-<p>
-LinkedIn:
-
-<a
-href="https://www.linkedin.com/in/sschanti"
-target="_blank">
-
-linkedin.com/in/sschanti
-
-</a>
-
-</p>
-
-
-<p>
-ORCID:
-
-<a
-href="https://orcid.org/0009-0009-9860-7030"
-target="_blank">
-
-0009-0009-9860-7030
-
-</a>
-
-</p>
-
+    <a class="contact-link" href="https://wa.me/9182935552" target="_blank" rel="noopener">
+      <span>WhatsApp</span>Message me ↗
+    </a>
+  </div>
 </section>
 
-
-<footer>
-
-© 2026 Arava Satya Saichanti
-
+<footer class="footer">
+  <span>© 2026 Arava Satya Saichanti</span>
+  <span>Geospatial research · Earth observation · Environmental insight</span>
 </footer>
 
+</main>
 
-</body>
-</html>
+<script>
+function showPanel(id) {
+  const panels = document.querySelectorAll('.content-panel');
+
+  panels.forEach(panel => {
+    panel.classList.toggle('active', panel.id === id);
+  });
+
+  document.querySelectorAll('.navlinks button').forEach(button => {
+    button.classList.toggle('active', button.dataset.panel === id);
+  });
+
+  if (id !== 'home') {
+    history.replaceState(null, '', '#' + id);
+  } else {
+    history.replaceState(null, '', location.pathname);
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+window.addEvent
